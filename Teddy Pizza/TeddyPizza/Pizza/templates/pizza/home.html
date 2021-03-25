@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title%} {% endblock %}</title>
+     <style>
+       {% block css %} {% endblock %}
+  </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Teddy Pizza</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/loginPage">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Order Pizza</h1>
+        <p>Kindly proceed with your order</p>
+        <form method= "POST" action= "/placeOrder">
+{% csrf_token %}
+   <div class="form-group">
+    <label for="exampleFormControlInput1">Customer Name</label>
+    <input type="customer_name" class="form-control" id="exampleFormControlInput1" name="customer_name" placeholder="name">
+  </div>
+
+
+  <div class="form-group">
+    <label for="price">Select type of ingredient :</label>
+
+  <select name="ingredient_name" id="name">
+    <option value="">Select One</option>
+    {% for order in orders %}
+
+    <option value="{{order.ingredient_name}}">{{order.ingredient_name}}</option>
+  {% endfor %}
+  </select>
+
+  </div>
+
+   <div class="form-group">
+    <label for="price">Choose a Price:</label>
+  <select name="price" id="price">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+   </div>
+
+
+
+            <div class="form-col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        </form>
+    </div>
+  </div>
+
+</main>
+
+  </body>
+</html>

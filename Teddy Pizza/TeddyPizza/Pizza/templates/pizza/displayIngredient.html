@@ -1,0 +1,32 @@
+{% extends 'pizza/shared.html' %}
+
+
+{% block title%} Baker{% endblock %}
+
+
+{% block body %}
+
+<div class="container my-4">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Available Ingredients</th>
+      <th scope="col">Supplier Name</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for ingredient in ingredients %}
+    <tr>
+      <td name="customer_name">{{ingredient.ingredient_name}}</td>
+      <td name="pizza_name">{{ingredient.supplier_name}}</td>
+
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    {% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'pizza/shared.html' %}
+
+
+{% block title%} Baker{% endblock %}
+
+
+{% block body %}
+
+<div class="container my-4">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Pizza Ingredient</th>
+      <th scope="col">Price</th>
+      <th scope="col">Functionality</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order in orders %}
+    <tr>
+      <td name="customer_name">{{order.CustomerName}}</td>
+      <td name="pizza_name">{{order.pizza_name}}</td>
+      <td name="price">{{order.price}}</td>
+       <td>
+          <a href="deleteOrder/{{order.id}}" class ="btn btn-primary btn-sm" target="_blank">
+          Delete
+          </a>
+       </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    {% endblock %}

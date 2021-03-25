@@ -1,0 +1,43 @@
+{% extends 'pizza/shared.html' %}
+
+
+{% block title%} Ingredients{% endblock %}
+{% block body %}
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Ingredients</h1>
+
+        <form method= "POST" action= "/deleteIngredient">
+{% csrf_token %}
+ <div class="form-group">
+    <label for="price">Select type of ingredient :</label>
+
+  <select name="ingredient_name" id="ingredient_name">
+    <option value="">Select One</option>
+    {% for i in lists %}
+
+    <option value="{{i.ingredient_name}}">{{i.ingredient_name}}</option>
+  {% endfor %}
+  </select>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Supplier Name</label>
+    <input type="supplier_name" class="form-control" name="supplier_name" id="exampleFormControlInput2" placeholder="Supplier name">
+  </div>
+            <div class="form-col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        </form>
+    </div>
+  </div>
+
+</main>
+
+
+
+{% endblock %}
