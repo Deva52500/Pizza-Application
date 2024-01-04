@@ -17,7 +17,7 @@ Rest other fields will be same.
  
 3.Run application within the directory TeddyPizza
 Example:
-E:\Teddy Pizza\TeddyPizza> (commands)
+(drive):\Teddy Pizza\TeddyPizza> (commands)
 
 Commands:
 python manage.py makemigrations
